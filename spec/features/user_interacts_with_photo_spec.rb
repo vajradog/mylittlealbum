@@ -46,6 +46,5 @@ feature "user interacts with photos" do
     fill_in('photo[photo_url]', with: photo.photo_url)
     click_button("Submit")
   end
-
-
 end
+

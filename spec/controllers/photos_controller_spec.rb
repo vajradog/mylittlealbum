@@ -23,8 +23,8 @@ describe PhotosController do
       it "sets the notice" do
         expect(flash[:notice]).not_to be_blank
       end
-
     end
+
     context "with invalid input" do
       before do
         post :create, photo: {title:"s", description:"k"}
@@ -37,7 +37,6 @@ describe PhotosController do
       it "sets the error message" do
         expect(flash[:error]).not_to be_blank
       end
-
     end
   end
 end
