@@ -2,7 +2,7 @@
   <div class="row">
     <div class="large-12 columns">
       <div class="main-wrapper">
-        <h1>My Little Album</h1>
+        <h1><% if current_user %><%= (current_user.full_name) +("'s ") %><% else %>My<% end %> Little Album</h1>
         <hr>
         <div class="row">
           <div class="large-6 columns large-centered">
@@ -10,7 +10,8 @@
               <li><a href="#" class="button">Home</a></li>
               <li><a href="#" class="button">About</a></li>
               <li><a href="#" class="button">Adopt</a></li>
-              <li><a href="#" class="button">Contact</a></li>
+              <% if !logged_in %><li><a href="#" data-reveal-id="myModal">Sign in</a></li><% end %>
+              <li><%= link_to 'Sign out', logout_path if logged_in %></li>
             </ul>
           </div>
         </div>
@@ -19,3 +20,16 @@
   </div>
 </section>
 
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+  <%= form_tag sessions_path do %>
+  <h3>Sign in</h3>
+    <%= label_tag :email %>
+    <%= email_field_tag :email, params[:email] %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password, params[:password] %>
+    <%= submit_tag 'Login', class: 'button' %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 feature "user interacts with photos" do
+  background do 
+    sign_in
+  end
   scenario "with one photo and valid data" do
     picnic = Fabricate(:photo)
     visit photos_path
