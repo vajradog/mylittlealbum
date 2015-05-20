@@ -11,15 +11,14 @@
         <h2>Sign Up.</h2>
         <%= form_for @user do |f| %>
           <%= f.text_field :full_name, placeholder: "Full Name" %>
-          <%= f.text_field :email, placeholder: "Email address" %>
+          <%= f.email_field :email, placeholder: "Email address" %>
           <%= f.password_field :password, placeholder: "Password" %>
           <%= f.submit "Submit", class: "button" %>
         <% end %>
       </div>
     </div>
   </div>
-</section>
-      
+</section>      
       <section class="hero-content"> 
       <div class="row">
         <div class="large-8 columns about-content">

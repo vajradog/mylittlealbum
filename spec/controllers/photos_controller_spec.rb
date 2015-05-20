@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 describe PhotosController do
+  before { set_current_user }
+  
   describe "GET index" do
-    it "sets the @photos" do
+    it "sets the @photos" do 
       photo1 = Fabricate(:photo)
       photo2 = Fabricate(:photo)
       get :index
