@@ -1,3 +1,5 @@
 class Photo < ActiveRecord::Base
-  validates_presence_of :photo_url
+  
+  belongs_to :user
+  validates :photo_url, presence: true
 end
