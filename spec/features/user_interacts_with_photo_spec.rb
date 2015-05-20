@@ -6,7 +6,6 @@ feature "user interacts with photos" do
     visit photos_path
     add_photo(picnic)
     expect_photo_to_be_present(picnic)
-
   end
 
   scenario "with multiple photos and valid data" do

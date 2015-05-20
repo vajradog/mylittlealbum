@@ -11,8 +11,9 @@ class PhotosController < ApplicationController
       flash[:notice] = "Your photo was added"
       redirect_to photos_path
     else
-      flash[:error] = "Could not add your photo, photo url must be present"
-      redirect_to photos_path
+      @photos = Photo.all.reload
+      flash.now[:error] = "Could not add your photo, photo url must be present"
+      render 'index'
     end
   end
 

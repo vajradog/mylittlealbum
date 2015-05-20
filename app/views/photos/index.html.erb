@@ -12,12 +12,8 @@
     </div>
 
     <div class="large-4 columns">
-
-      <% flash.each do |key, value| %>
-        <div data-alert class="alert-box">
-          <%= content_tag :div, value, class: "flash #{key}" %>
-        </div>
-      <% end %>
+      <%= render 'shared/flash' %>
+    
 
       <%= form_for @photo do |f| %>
         <h4>Upload New Photos</h4>
