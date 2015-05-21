@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
   root 'users#new'
-  resources :photos, only: [:index, :create]
+  resources :photos, only: [:index, :create, :destroy]
   resources :users, only: [:create, :new]
   get 'login', to: "sessions#new"
   get 'logout', to: "sessions#destroy"

@@ -27,6 +27,11 @@ describe UsersController do
         expect(flash[:notice]).not_to be_blank
       end
 
+      it "sets session[:user_id] " do
+        post :create, user: { email: "sandy@yahoo.com", full_name: "Sandy Karen", password: "sandy" }
+        expect(session[:user_id]).to_not be_nil
+      end
+
     end
 
     context "with invalid inputs" do
@@ -35,9 +40,9 @@ describe UsersController do
         expect(User.count).to eq(0)
       end
 
-      it "renders the :new template" do
+      it "renders the root_ath template" do
         post :create, user: {email: "sandy@yahoo.com", password: "sandy"}
-        expect(response).to render_template :new
+        expect(response).to redirect_to root_path
       end
 
       it "sets @user" do 

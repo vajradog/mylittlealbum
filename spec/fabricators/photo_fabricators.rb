@@ -1,4 +1,4 @@
 Fabricator(:photo) do
-  photo_url { Faker::Avatar.image }
+  photo_url "someimage.jpg"
   title { Faker::Lorem.word }
 end

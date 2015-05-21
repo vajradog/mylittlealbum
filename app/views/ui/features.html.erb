@@ -1,19 +1,21 @@
-<section class="ui-index">
-  <ul>
-    <% Dir.glob('app/views/ui/*.html.erb').sort.each do |file| %>
-      <% wireframe = File.basename(file,'.html.erb') %>
-      <% unless wireframe == 'index' || wireframe.match(/^_/) %>
-        <li>
-          <%= link_to wireframe.titleize, action: wireframe unless wireframe == 'index' %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-</section>
+<!doctype html>
+<html class="no-js">
 
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <title>Filoxenia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="css/vendor/animate.css">
+    <link rel="stylesheet" href="css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="css/filoxenia.css">
+    <link rel="stylesheet" href="css/custom.css">
 
-
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/fastclick.js"></script>
+</head>
 
 <body>
     <header class="contain-to-grid">
@@ -62,7 +64,7 @@
                                 <a href="plans.html">Plans &amp; Pricing</a>
                             </li>
 
-                            <li>
+                            <li class="active">
                                 <a href="features.html">Features</a>
                             </li>
 
@@ -88,23 +90,22 @@
 
     <main>
 
-
-        <section class="hero">
-            <div class="row hero-message">
-                <div class="small-10 small-centered column text-center">
-                    <h1>Powerful Hosting Solution</h1>
-                    <h4>The more affordable approach to stable web hosting solutions. Inexpensive, reliable, and feature-rich!</h4>
-
-                    <a href="signup.html" class="button">SIGN UP FOR A PLAN</a>
+        <div class="breadcrumb-container">
+            <div class="row">
+                <div class="large-12 column">
+                    <nav class="breadcrumbs animated bounceInDown">
+                        <a href="index.html">Home</a>
+                        <a class="current" href="#">Features</a>
+                    </nav>
                 </div>
             </div>
-        </section>
+        </div>
 
 
         <section class="container">
             <div class="row title">
                 <div class="small-12 column">
-                    <h6>What we offer</h6>
+                    <h6>Our top features</h6>
                 </div>
             </div>
 
@@ -174,10 +175,83 @@
                 </div>
             </div>
 
+        </section>
 
-            <div class="row ">
-                <div class="large-12 column text-center">
-                    <a href="features.html" class="button">View Full Features List</a>
+        <section class="container">
+            <div class="row title">
+                <div class="small-12 column">
+                    <h6>Even more features</h6>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="small-12">
+                    <ul class="features medium-block-grid-2 small-block-grid-1 spacy">
+                        <li>
+                            <div class="row">
+                                <div class="small-2 column text-center">
+                                    <i class="fa fa-check-circle-o text-size--xxl"></i>
+                                </div>
+
+                                <div class="small-10 column">
+                                    <h4>Everything's OK</h4>
+
+                                    <p>
+                                        Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="row">
+                                <div class="small-2 column text-center">
+                                    <i class="fa fa-bolt text-size--xxl"></i>
+                                </div>
+
+                                <div class="small-10 column">
+                                    <h4>Super Fast</h4>
+
+                                    <p>
+                                        Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="row">
+                                <div class="small-2 column text-center">
+                                    <i class="fa fa-globe text-size--xxl"></i>
+                                </div>
+
+                                <div class="small-10 column">
+                                    <h4>Many Servers Worldwide</h4>
+
+                                    <p>
+                                        Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="row">
+                                <div class="small-2 column text-center">
+                                    <i class="fa fa-clock-o text-size--xxl"></i>
+                                </div>
+
+                                <div class="small-10 column">
+                                    <h4>Cron Jobs</h4>
+
+                                    <p>
+                                        Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -185,64 +259,87 @@
         <section class="container">
             <div class="row title">
                 <div class="small-12 column">
-                    <h6>Pick a plan</h6>
+                    <h6>Advanced Technologies</h6>
                 </div>
             </div>
 
 
-            <div class="row">
-                <div class="medium-4 column">
-                    <ul class="pricing-table">
-                        <li class="title">Basic</li>
-                        <li class="price">$9.99 <span>/ month</span>
-                        </li>
-                        <li class="bullet-item"><strong>5GB</strong> Storage</li>
-                        <li class="bullet-item"><strong>1</strong> MySQL Database</li>
-                        <li class="bullet-item"><strong>Unlimited</strong> Bandwidth</li>
-                        <li class="bullet-item"><strong>1</strong> Free Domain</li>
-                        <li class="bullet-item"><strong>5</strong> Users</li>
-                        <li class="bullet-item"><strong>10</strong> Email Accounts</li>
-                        <li class="bullet-item">cPanel &amp; FTP</li>
-                        <li class="cta-button"><a class="button" href="signup.html">Get Started</a>
-                        </li>
-                    </ul>
+            <article class="row">
+                <div class="large-6 column text-center">
+                    <img src="images/photos/features1.jpg" class="bottom-spacer--s" alt="">
                 </div>
 
-                <div class="medium-4 column">
-                    <ul class="pricing-table highlight">
-                        <li class="title">Business</li>
-                        <li class="price">$39.99 <span>/ month</span>
-                        </li>
-                        <li class="bullet-item"><strong>500GB</strong> Storage</li>
-                        <li class="bullet-item"><strong>10</strong> MySQL Databases</li>
-                        <li class="bullet-item"><strong>Unlimited</strong> Bandwidth</li>
-                        <li class="bullet-item"><strong>3</strong> Free Domains</li>
-                        <li class="bullet-item"><strong>40</strong> Users</li>
-                        <li class="bullet-item"><strong>100</strong> Email Accounts</li>
-                        <li class="bullet-item">cPanel &amp; SFTP</li>
-                        <li class="cta-button"><a class="button" href="signup.html">Get Started</a>
-                        </li>
-                    </ul>
+                <div class="large-6 column">
+                    <h4>Sollicitudin Lorem Venenatis</h4>
+
+                    <p>
+                        Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+                    </p>
+
+                    <p>
+                        Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                    </p>
+                </div>
+            </article>
+
+            <article class="row top-spacer--l">
+                <div class="large-6 push-6 column text-center">
+                    <img src="images/photos/features2.jpg" class="bottom-spacer--s" alt="">
                 </div>
 
-                <div class="medium-4 column">
-                    <ul class="pricing-table">
-                        <li class="title">Professional</li>
-                        <li class="price">$99.99 <span>/ month</span>
-                        </li>
-                        <li class="bullet-item"><strong>Unlimited</strong> Storage</li>
-                        <li class="bullet-item"><strong>Unlimited</strong> MySQL Databases</li>
-                        <li class="bullet-item"><strong>Unlimited</strong> Bandwidth</li>
-                        <li class="bullet-item"><strong>10</strong> Free Domains</li>
-                        <li class="bullet-item"><strong>Unlimited</strong> Users</li>
-                        <li class="bullet-item"><strong>Unlimited</strong> Email Accounts</li>
-                        <li class="bullet-item">cPanel &amp; SFTP</li>
-                        <li class="cta-button"><a class="button" href="signup.html">Get Started</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                <div class="large-6 pull-6 column">
+                    <h4>Purus Ridiculus Tortor</h4>
 
+                    <p>
+                        Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                    </p>
+
+                    <p>
+                        Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.
+                    </p>
+
+                    <p>
+                        Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with optimal networks.
+                    </p>
+                </div>
+            </article>
+
+            <article class="row top-spacer--l">
+                <div class="large-6 column text-center">
+                    <img src="images/photos/features3.jpg" class="bottom-spacer--s" alt="">
+                </div>
+
+                <div class="large-6 column">
+                    <h4>Sollicitudin Lorem Venenatis</h4>
+
+                    <p>
+                        Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable
+                        products.
+                    </p>
+
+                    <p>
+                        Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.
+                    </p>
+                </div>
+            </article>
+
+            <article class="row top-spacer--l">
+                <div class="large-6 push-6 column text-center">
+                    <img src="images/photos/features4.jpg" class="bottom-spacer--s" alt="">
+                </div>
+
+                <div class="large-6 pull-6 column">
+                    <h4>Purus Ridiculus Tortor</h4>
+
+                    <p>
+                        Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.
+                    </p>
+
+                    <p>
+                        Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with optimal networks.
+                    </p>
+                </div>
+            </article>
         </section>
 
         <section class="container">
@@ -441,5 +538,15 @@
     </footer>
 
     <!-- Javascript -->
-   
+    <script>
+        Modernizr.mq('(min-width:0)') || document.write('<script src="js/vendor/respond.js"><\/script>')
+    </script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/jquery.fitvids.js"></script>
+    <script src="js/vendor/jquery.magnific-popup.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/filoxenia.js"></script>
+    <script src="js/custom.js"></script>
 </body>
+
+</html>

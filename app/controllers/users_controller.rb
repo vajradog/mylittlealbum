@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
 
   def new
+    redirect_to photos_path if current_user
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Account created successfully"
-      redirect_to photos_path
+      session[:user_id] = @user.id
+      redirect_to photos_path, notice: "Account created successfully"
     else
-      flash.now[:error] = "Could not create account"
-      render :new
+      flash[:error] = "Could not create account. All fields are required"
+      redirect_to root_path
     end
   end
 
