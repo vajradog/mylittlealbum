@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to photos_path
+    redirect_to photos_path if current_user
   end
 
   def create
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to photos_path
     else
       redirect_to root_path
-      flash[:error] = "Something wrong with your email or password"
+      flash[:error] = "Wrong email or password, try again"
     end
   end
 

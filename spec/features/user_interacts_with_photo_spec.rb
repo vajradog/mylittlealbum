@@ -23,7 +23,7 @@ feature "user interacts with photos" do
   scenario "with invalid data and gets error message" do
     visit photos_path
     click_submit_with_no_photo_url
-    expect_page_to_have_message("Could not add your photo, photo url must be present")
+    expect_page_to_have_message("Photo url must be present and have correct extension")
   end
 
   def expect_photo_to_be_present(photo)

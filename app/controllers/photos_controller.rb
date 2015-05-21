@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_filter :require_user
 
   def index
-    @photos = Photo.all.order("created_at DESC")
+    @photos = current_user.photos
     @photo = Photo.new
   end
 
@@ -12,15 +12,21 @@ class PhotosController < ApplicationController
       flash[:notice] = "Your photo was added"
       redirect_to photos_path
     else
-      @photos = Photo.all.reload
-      flash.now[:error] = "Could not add your photo, photo url must be present"
+      @photos = current_user.photos.reload
+      flash[:error] = "Photo url must be present and have correct extension"
       render 'index'
     end
+  end
+
+  def destroy
+    photo = Photo.find(params[:id])
+    photo.delete if current_user.photos.include?(photo)
+    redirect_to photos_path
   end
 
   private
 
   def photo_params
-    params.require(:photo).permit(:photo_url, :title, :description)
+    params.require(:photo).permit(:photo_url, :title, :description).merge!(user: current_user)
   end
 end

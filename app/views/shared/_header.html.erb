@@ -1,27 +1,37 @@
-<section class="hero">
+<header class="contain-to-grid">
   <div class="row">
-    <div class="large-12 columns">
-      <div class="main-wrapper">
-        <h1><% if current_user %><%= (current_user.full_name) +("'s ") %><% else %>My<% end %> Little Album</h1>
-        <hr>
-        <div class="row">
-          <div class="large-6 columns large-centered">
-            <ul class="button-group even-4">
-              <li><a href="#" class="button">Home</a></li>
-              <li><a href="#" class="button">About</a></li>
-              <li><a href="#" class="button">Adopt</a></li>
-              <% if !logged_in %><li><a href="#" data-reveal-id="myModal">Sign in</a></li><% end %>
-              <li><%= link_to 'Sign out', logout_path if logged_in %></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="small-12 column">
+      <nav class="top-bar" data-topbar role="navigation" data-options="back_text: <i class='fa fa-chevron-left'></i> Back; mobile_show_parent_link: false;">
+        <ul class="title-area">
+          <li class="name">
+            <%= link_to image_tag("http://res.cloudinary.com/styleupload/image/upload/v1432179171/little_album_logo_nhrylr.png"), photos_path %>
+            
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#"><span>Menu</span></a>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+
+            <% if logged_in %>
+            <li><%= link_to current_user.full_name, "" %></li>
+            <li><%= link_to 'Sign out', logout_path, class: "button" if logged_in %></li>
+            <% else %>
+            <li> <a href="plans.html">Sample Album</a></li>
+            <li><a href="#" data-reveal-id="myModal" class="button success">Sign in</a></li>
+            <% end %>
+          </ul>
+        </section>
+      </nav>
     </div>
   </div>
-</section>
+</header>
 
 
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+<div class="large-2 column">
+<div id="myModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
   <%= form_tag sessions_path do %>
   <h3>Sign in</h3>
@@ -32,4 +42,6 @@
     <%= submit_tag 'Login', class: 'button' %>
   <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
+</div></div>
+
+      <%= render 'shared/flash' %>

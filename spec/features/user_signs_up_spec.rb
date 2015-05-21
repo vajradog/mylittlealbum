@@ -6,7 +6,7 @@ feature "user signs up" do
     fill_in('user[full_name]', with: "John Doe")
     fill_in('user[email]', with: "john@example.com")
     fill_in('user[password]', with: "password")
-    click_button('Submit')
+    click_button('Sign me up!')
     expect(User.count).to eq(1)
   end
 
@@ -15,7 +15,7 @@ feature "user signs up" do
     fill_in('user[full_name]', with: "John Doe")
     fill_in('user[email]', with: "")
     fill_in('user[password]', with: "password")
-    click_button('Submit')
+    click_button('Sign me up!')
     expect(User.count).to eq(0)
   end
 
