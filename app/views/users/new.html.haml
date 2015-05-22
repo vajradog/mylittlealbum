@@ -1,0 +1,27 @@
+%section.hero
+  .row
+    .large-4.medium-4.columns.about-box
+      .black-box
+        %h3{:color => "white"}
+          %font{:color => "#FF9C5B"}
+            Sign Up.
+            %small
+              %font{:color => "#FAD089"} It's Free
+        = form_for @user do |f|
+          = f.text_field :full_name, placeholder: "Full Name"
+          = f.email_field :email, placeholder: "Email address"
+          = f.password_field :password, placeholder: "Password"
+          = f.submit "Sign me up!", class: "button"
+%section.container
+  .row.title
+    .small-12.column
+      %h6 This is a practice project.
+  .row
+    .large-12.column
+      %p My little album allow users to upload photos. The photos will remain private unless set otherwise. The photos will be categorized by date.
+      %p New parents who wishes to save each and every memory with their kid need not worry about running out of space on their phone, overwhelming their Facebook/Instagram pages with baby photos, having photos on multiple devices and most importantly losing the photos and the memories/stories behind them.
+      %p
+        Checkout
+        %a{:href => "https://www.gotealeaf.com/"} Tealeaf Academy
+        to learn how to build robust and production quality applications using Ruby on Rails.
+      %a.button{:href => "https://github.com/vajradog/mylittlealbum"} Source Code: Ideas/Contributions are welcome

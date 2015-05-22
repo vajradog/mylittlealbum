@@ -1,0 +1,22 @@
+%section.photos-page
+  .row
+    .large-8.columns
+      - if current_user.photos.count < 1
+        You currently have no photos. Start building your album by adding new photos!
+      - else
+        %ul.small-block-grid-3
+          .row.title
+            %h6 May 2015
+          - @photos.each do |photo|
+            %li
+              %span.has-tip{"aria-haspopup" => "true", "data-tooltip" => "", :title => "Uploaded on #{fix_date(photo.created_at)}"}= image_tag photo.photo_url
+    .large-4.columns
+      = form_for @photo do |f|
+        %h4 Upload New Photos
+        = f.label :photo_url
+        = f.text_field :photo_url, placeholder: "Required field: Paste photo url here"
+        = f.label :title
+        = f.text_field :title, placeholder: "Optional field"
+        = f.label :description
+        = f.text_area :description, placeholder: "Optional field"
+        = f.submit "Submit", class: 'button'

@@ -1,0 +1,31 @@
+%header.contain-to-grid
+  .row
+    .small-12.column
+      %nav.top-bar{"data-options" => "back_text: Back; mobile_show_parent_link: false;", "data-topbar" => "", :role => "navigation"}
+        %ul.title-area
+          %li.name
+            = link_to image_tag("http://res.cloudinary.com/styleupload/image/upload/v1432179171/little_album_logo_nhrylr.png"), photos_path
+          %li.toggle-topbar.menu-icon
+            %a{:href => "#"}
+              %span Menu
+        %section.top-bar-section
+          %ul.right
+            - if logged_in
+              %li= link_to current_user.full_name, ""
+              %li= link_to 'Sign out', logout_path, class: "button" if logged_in
+            - else
+              %li
+                %a{:href => "plans.html"} Sample Album
+              %li
+                %a.button.success{"data-reveal-id" => "myModal", :href => "#"} Sign in
+.large-2.column
+  #myModal.reveal-modal.tiny{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", "data-reveal" => "", :role => "dialog"}
+    = form_tag sessions_path do
+      %h3 Sign in
+      = label_tag :email
+      = email_field_tag :email, params[:email]
+      = label_tag :password
+      = password_field_tag :password, params[:password]
+      = submit_tag 'Login', class: 'button'
+    %a.close-reveal-modal{"aria-label" => "Close"} ×
+= render 'shared/flash'

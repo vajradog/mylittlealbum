@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
       redirect_to photos_path
     else
       @photos = current_user.photos.reload
-      flash[:error] = "Photo url must be present and have correct extension"
+      flash.now[:error] = "Photo url must be present and have correct extension"
       render 'index'
     end
   end

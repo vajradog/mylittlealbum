@@ -2,21 +2,22 @@ require 'rails_helper'
 
 feature "user signs up" do
   scenario "with valid data" do
-    visit root_path
-    fill_in('user[full_name]', with: "John Doe")
-    fill_in('user[email]', with: "john@example.com")
-    fill_in('user[password]', with: "password")
-    click_button('Sign me up!')
-    expect(User.count).to eq(1)
+    sign_up
+    expect_user_count_to_be(1)
   end
 
   scenario "with invalid data" do
-    visit root_path
-    fill_in('user[full_name]', with: "John Doe")
-    fill_in('user[email]', with: "")
-    fill_in('user[password]', with: "password")
-    click_button('Sign me up!')
-    expect(User.count).to eq(0)
+    sign_up_with_invalid_data
+    expect_user_count_to_be(0)
   end
 
+  def expect_user_count_to_be(n)
+    expect(User.count).to eq(n)
+  end
+
+  def sign_up_with_invalid_data
+    visit root_path
+    fill_in('user[full_name]', with: "full name")
+    click_button('Sign me up!')
+  end
 end

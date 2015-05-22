@@ -5,7 +5,6 @@ describe PhotosController do
   
   describe "GET index" do
     it "sets the @photos" do
-
       photo1 = Fabricate(:photo, user: current_user)
       photo2 = Fabricate(:photo, user: current_user)
       get :index
@@ -45,15 +44,14 @@ describe PhotosController do
 
   describe "DELETE destroy" do
     before { set_current_user }
+    let(:picnic_photo) { Fabricate(:photo, user: current_user) }
 
     it "redirects to photos page" do
-      picnic_photo = Fabricate(:photo)
       delete :destroy, id: picnic_photo.id
       expect(response).to redirect_to photos_path
     end
 
     it "deletes the photo" do 
-      picnic_photo = Fabricate(:photo, user: current_user)
       delete :destroy, id: picnic_photo.id
       expect(Photo.count).to eq(0)
     end
