@@ -15,8 +15,6 @@
               %li= link_to 'Sign out', logout_path, class: "button" if logged_in
             - else
               %li
-                %a{:href => "plans.html"} Sample Album
-              %li
                 %a.button.success{"data-reveal-id" => "myModal", :href => "#"} Sign in
 .large-2.column
   #myModal.reveal-modal.tiny{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", "data-reveal" => "", :role => "dialog"}
